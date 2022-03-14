@@ -1,5 +1,5 @@
 const objetoA: {
-  chaveA: string;
+  readonly chaveA: string;
   chaveB: string;
   chaveC?: string;
   [key: string]: string | undefined;
@@ -9,3 +9,6 @@ const objetoA: {
 };
 
 objetoA.chaveA = 'Outro Valor';
+objetoA.chaveB = 'Novo valor';
+
+console.log(objetoA);
