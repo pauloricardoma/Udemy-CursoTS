@@ -1,1 +1,2 @@
-console.log('Olá Mundo!');
+import funcao from './mod';
+funcao('Mas que cois');

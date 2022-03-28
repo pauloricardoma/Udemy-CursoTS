@@ -8,7 +8,7 @@ type AB = 'A' | 'B';
 type AC = 'A' | 'C';
 type IntersectionABC = AB & AC; // 'A'
 const intersectionABC: IntersectionABC = 'A';
-const intersectionABC2: IntersectionABC = 'B';
+// const intersectionABC2: IntersectionABC = 'B';
 
 const pessoa1: Pessoa1 = {
   idade: 30,

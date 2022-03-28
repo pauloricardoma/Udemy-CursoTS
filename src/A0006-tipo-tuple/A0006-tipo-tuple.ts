@@ -10,8 +10,8 @@ const dataClient3: [number, string, ...string[]] = [
   'Novas',
 ];
 
-dataClient[0] = 2;
-dataClient[1] = 'Nãm';
+// dataClient[0] = 2;
+// dataClient[1] = 'Nãm';
 dataClient1[2] = 'Nãm';
 
 dataClient3.push('Mais Um');
