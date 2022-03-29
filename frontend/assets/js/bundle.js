@@ -14,10 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.haha = void 0;
-var isEmail_1 = __importDefault(__webpack_require__(/*! validator/lib/isEmail */ "./node_modules/validator/lib/isEmail.js"));
-var SHOW_ERROR_MESSAGES = 'show-error-message';
-var form = document.querySelector('#form');
-var username = form.username, email = form.email, password = form.password, password2 = form.password2;
+const isEmail_1 = __importDefault(__webpack_require__(/*! validator/lib/isEmail */ "./node_modules/validator/lib/isEmail.js"));
+const SHOW_ERROR_MESSAGES = 'show-error-message';
+const form = document.querySelector('#form');
+const { username, email, password, password2 } = form;
 exports.haha = form.addEventListener('submit', function (event) {
     event.preventDefault();
     hideErrorsMessages(this);
@@ -26,12 +26,8 @@ exports.haha = form.addEventListener('submit', function (event) {
     checkEqualPassword(password, password2);
     shouldSendForm(this) && form.submit();
 });
-function checkForEmptyFields() {
-    var inputs = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        inputs[_i] = arguments[_i];
-    }
-    inputs.forEach(function (input) {
+function checkForEmptyFields(...inputs) {
+    inputs.forEach((input) => {
         if (!input.value)
             showErrorMessage(input, 'Campo não pode ser vazio');
     });
@@ -48,18 +44,18 @@ function checkEqualPassword(password, password2) {
 }
 function hideErrorsMessages(form) {
     form
-        .querySelectorAll(".".concat(SHOW_ERROR_MESSAGES))
-        .forEach(function (item) { return item.classList.remove(SHOW_ERROR_MESSAGES); });
+        .querySelectorAll(`.${SHOW_ERROR_MESSAGES}`)
+        .forEach((item) => item.classList.remove(SHOW_ERROR_MESSAGES));
 }
 function showErrorMessage(input, msg) {
-    var formFields = input.parentElement;
-    var errorMessage = formFields.querySelector('.error-message');
+    const formFields = input.parentElement;
+    const errorMessage = formFields.querySelector('.error-message');
     errorMessage.innerText = msg;
     formFields.classList.add(SHOW_ERROR_MESSAGES);
 }
 function shouldSendForm(form) {
-    var send = true;
-    form.querySelectorAll(".".concat(SHOW_ERROR_MESSAGES)).length !== 0 &&
+    let send = true;
+    form.querySelectorAll(`.${SHOW_ERROR_MESSAGES}`).length !== 0 &&
         (send = false);
     return send;
 }

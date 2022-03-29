@@ -1,12 +1,10 @@
 export class Empresa {
-  public readonly nome: string = 'Luiz'; // atributo public é redundante
-  private readonly price: number = 200;
+  readonly nome: string = 'Luiz'; // atributo public é redundante
   private readonly colaboradores: Colaborador[] = [];
   protected readonly cnpj: string;
 
-  constructor(nome: string, price: number, cnpj: string) {
+  constructor(nome: string, cnpj: string) {
     this.nome = nome;
-    this.price = price;
     this.cnpj = cnpj;
   }
 
@@ -33,15 +31,12 @@ export class Colaborador {
   ) {}
 }
 
-const empresa1 = new Empresa('Udemy', 20, '11.111.111/0001-11');
-const empresa2 = new Empresa('JStack', 80, '11.111.111/0001-22');
+const empresa1 = new Empresa('Udemy', '11.111.111/0001-11');
+const empresa2 = new Empresa('JStack', '11.111.111/0001-22');
 
 const colaborador1 = new Colaborador('Luiz', 'Otávio', 3000);
 const colaborador2 = new Colaborador('Paulo', 'Ricardo', 30000);
 const colaborador3 = new Colaborador('Maria', 'Carmo', 100000);
-
-console.log(empresa1);
-console.log(empresa2);
 
 empresa1.adicionaColaborador(colaborador1);
 empresa1.adicionaColaborador(colaborador2);
@@ -53,6 +48,4 @@ empresa1.mostrarColaboradores();
 empresa2.mostrarColaboradores();
 
 console.log(empresa1);
-console.log(empresa1.nome);
-// console.log(empresa1.price); // não acessível por ser private
 console.log(empresa2);
